@@ -1,0 +1,14 @@
+{
+  "name": "gmaps_js",
+  "version": "1.0.0",
+  "description": "Google Maps Integration with Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suhas Pindiproli",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

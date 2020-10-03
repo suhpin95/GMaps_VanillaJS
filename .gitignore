@@ -1,0 +1,6 @@
+# Stores API KEY
+.env
+
+package-lock.json
+
+node_modules
