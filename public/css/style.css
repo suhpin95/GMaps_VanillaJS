@@ -1,0 +1,18 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.mapContainer{
+  height: fit-content;
+  width: auto;
+  padding: 1.5em;
+}
+#header{
+  align-content: center;
+}
+#map {
+    height: 60vh;
+    width : 80%;
+  }
