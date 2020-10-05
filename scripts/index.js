@@ -10,7 +10,7 @@ function initMap() {
         zoom: 12,
     };
     let map = new google.maps.Map(mapDiv, mapConfigObj);
-    const infowindow = new google.maps.InfoWindow({
+    const infoWindow = new google.maps.InfoWindow({
         content: initialPosition['nameOfCity'],
       });
     let marker = new google.maps.Marker({
@@ -19,8 +19,10 @@ function initMap() {
         draggable:true
     });
     // Event Listener
-    marker.addListener("click", () => {
-        infowindow.open(map, marker);
+    marker.addListener("click", (markerEvent) => {
+        infoWindow.open(map, marker);
+        infoWindow.setContent(markerEvent.latLng.toString());
+        infoWindow.open(map);
         addList()
     });
 
