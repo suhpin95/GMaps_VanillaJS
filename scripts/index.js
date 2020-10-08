@@ -3,7 +3,6 @@ function initMap() {
     let initialPosition = {
         lat: 16.7692289,
         lng: 82.1291935,
-        nameOfCity: "Kuyyeru",
     };
     let mapConfigObj = {
         center: initialPosition,
@@ -12,9 +11,7 @@ function initMap() {
     let map = new google.maps.Map(mapDiv, mapConfigObj);
 
     //Info Window
-    const infoWindow = new google.maps.InfoWindow({
-        content: initialPosition["nameOfCity"],
-    });
+    const infoWindow = new google.maps.InfoWindow();
     
     // Marker
     let marker = new google.maps.Marker({
@@ -25,15 +22,9 @@ function initMap() {
     
     // Event Listener
     marker.addListener("click", (markerEvent) => {
-        changeName(markerEvent);
+        getCitythroughGeoCode(markerEvent.latLng.toJSON());
         infoWindow.open(map, marker);
     });
-
-    async function changeName(markerEvent){
-        let strAddress = await getCitythroughGeoCode(markerEvent.latLng.toJSON());
-        console.log(strAddress);
-        infoWindow.setContent(strAddress);
-    }
 
     // should take time to resolve
     function getCitythroughGeoCode(geoCode) {
@@ -50,7 +41,8 @@ function initMap() {
                     const address = results[0].formatted_address;
                     return new Promise(resolve => {
                         if(resolve){
-                              return address
+                            infoWindow.setContent(address);
+                            addList(address);
                         } else{
                             return "Error";
                         }
