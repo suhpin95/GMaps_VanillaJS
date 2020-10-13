@@ -58,8 +58,11 @@ function initMap() {
 
     // Adding the places in the list
     function addList(address) {
+        //create a paragraph tag
         let toVisit = document.createElement("li");
+        // set the classname 
+        toVisit.className = "list-group-item";
         toVisit.innerHTML = address;
-        document.getElementById("cardList").append(toVisit);
+        document.getElementsByClassName("list-group")[0].append(toVisit);
     }
 }
